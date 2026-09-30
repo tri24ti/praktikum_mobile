@@ -1,0 +1,1107 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>PERTEMUAN 5</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="74b54857-ba46-82ba-b2f9-818e54e23274" class="page sans"><header><h1 class="page-title" dir="auto">PERTEMUAN 5</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="a8a54857-ba46-8312-b165-012cebdc783c" style="display:inline-block">📂 Toolbar</h1></summary><div class="indented"><aside class="block-color-brown_background callout" data-notion-callout="" data-notion-callout-icon="⚠️" data-notion-callout-background="brown_background" style="white-space:pre-wrap;display:flex" id="26f54857-ba46-834c-9353-81c6f4ab7ece" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⚠️"></span></div><div style="width:100%"><p id="b2b54857-ba46-8206-9967-01276b487886" class="" dir="auto">Silahkan buat package <code>pertemuan_5</code> dan buat Activity <code>FifthActivity</code>  </p></div></aside><p id="bec54857-ba46-8214-93f9-019b2bfd9cc3" class="" dir="auto"><strong>Toolbar</strong> berfungsi sebagai <strong>Action Bar</strong>  yang menampilkan:</p><ul id="3ab54857-ba46-82cf-a507-8176d496427d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Judul aplikasi</strong></li></ul><ul id="6ca54857-ba46-8273-a73a-01b39932dce2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Tombol navigasi (misalnya: Back, Menu Drawer)</strong></li></ul><ul id="a2d54857-ba46-8393-ba1a-01d7f276c9a0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Menu Aksi (Search, Settings, Logout, dll.)</strong></li></ul><p id="79454857-ba46-835a-84a4-814d5f51bc9b" class="" dir="auto">
+</p><p id="89a54857-ba46-82aa-94fa-018608ba01d6" class="" dir="auto">Berikut contoh implementasi <strong>Toolbar</strong> menggunakan <strong>XML</strong>.</p><ol type="1" id="2f454857-ba46-83ba-aa3a-0178120a4067" class="numbered-list" start="1" dir="auto"><li>Tambahkan komponen <code>Toolbar</code> di <code>activity_fifth.xml</code><div id="68754857-ba46-8326-9ea8-0161ca825215" class="column-list" data-notion-column-list="" dir="auto"><div id="bed54857-ba46-82a7-98de-81ac7bc075db" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="90254857-ba46-826d-82e8-01aa6c692fc8" class="code code-wrap" data-notion-code-syntax="xml"><code class="language-xml" style="white-space:pre-wrap;word-break:break-all">    &lt;androidx.appcompat.widget.Toolbar
+	      android:id=&quot;@+id/toolbar&quot;
+	      android:layout_width=&quot;match_parent&quot;
+	      android:layout_height=&quot;?attr/actionBarSize&quot;
+	      android:background=&quot;?attr/colorPrimary&quot;
+	      app:titleTextColor=&quot;@android:color/white&quot;
+	      app:subtitleTextColor=&quot;@android:color/white&quot; /&gt;</code></pre></div><div id="5d854857-ba46-834a-a028-810e3a72fa5a" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="08a54857-ba46-82b3-8ff4-819e2384209d" class="image" data-notion-image="image.png" dir="ltr"><a href="image.png"><img style="width:303.9508972167969px" src="image.png"/></a></figure><ul id="80054857-ba46-8201-9185-81b0a9f70334" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Jangan lupa untuk memasang Constraint</li></ul><p id="a9654857-ba46-83d3-b4cc-019af413ea66" class="" dir="auto">
+</p></div></div></li></ol><ol type="1" id="52d54857-ba46-82c5-80fd-01b8d8dedf86" class="numbered-list" start="2" dir="auto"><li>Terapkan Toolbar di <code>FifthActivity</code> dan coba jalankan, toolbar akan tampil di bagian atas layar<div id="12b54857-ba46-8383-b307-01a789883cd9" class="column-list" data-notion-column-list="" dir="auto"><div id="b9b54857-ba46-839c-9057-8102b03a4c04" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js" integrity="sha512-nLUQ1JXk2Kj5a8FlfriL+WmiGbAq3W/dQirx3IlVfkpU7byrzLD19pJnYsG8vPTDvsRMpQDVSezvzkKUNcqUSw==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><pre id="58f54857-ba46-8383-b8bc-01223bc48890" class="code code-wrap" data-notion-code-syntax="kotlin"><code class="language-kotlin" style="white-space:pre-wrap;word-break:break-all">  
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+				...
+				
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = &quot;Activity Fifth&quot;
+            subtitle = &quot;Ini adalah subtitle&quot;
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }</code></pre></div><div id="eb954857-ba46-8250-810c-816cad19b8d4" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="e0d54857-ba46-8297-b944-011dc1c224e1" class="image" data-notion-image="image%201.png" dir="ltr"><a href="image%201.png"><img style="width:303.9620666503906px" src="image%201.png"/></a></figure><ul id="43c54857-ba46-826b-b70a-017b14f90eaf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Jika tidak ingin ada subtitle, cukup hapus bagian :<p id="44454857-ba46-8264-9675-019bf3f216d6" class="" dir="auto"><code>subtitle = &quot;Ini adalah subtitle&quot;</code></p></li></ul><ul id="34954857-ba46-83d5-a48b-01e851106d7d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Jika tidak ingin ada tombl back, cukup hapus bagian:<p id="c8054857-ba46-82cb-b49e-812836221590" class="" dir="auto"><code>setDisplayHomeAsUpEnabled(true)</code><br/><code>setDisplayShowHomeEnabled(true)</code></p></li></ul><p id="bc454857-ba46-826c-b275-8112c7dec1bc" class="" dir="auto">
+</p></div></div></li></ol><ol type="1" id="06954857-ba46-83d5-a4aa-0153e70774c0" class="numbered-list" start="3" dir="auto"><li>Agar tombol back bisa berfungsi, tambahkan kode berikut dibawah <code>onCreate</code><pre id="e1954857-ba46-82a6-9010-815b5f5b0b67" class="code code-wrap" data-notion-code-syntax="kotlin"><code class="language-kotlin" style="white-space:pre-wrap;word-break:break-all">    override fun onCreate(savedInstanceState: Bundle?) {{
+		    ...
+    }
+    
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -&gt; {
+                onBackPressedDispatcher.onBackPressed()
+                true
+            }
+
+            else -&gt; super.onOptionsItemSelected(item)
+        }
+    }</code></pre></li></ol><p id="4ec54857-ba46-8392-831b-81cfdece9cf5" class="" dir="auto">
+</p><aside class="block-color-blue_background callout" data-notion-callout="" data-notion-callout-icon="🛠" data-notion-callout-background="blue_background" style="white-space:pre-wrap;display:flex" id="b0c54857-ba46-83e3-a244-01c42954d541" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🛠"></span></div><div style="width:100%"><p id="27354857-ba46-831d-b5ec-0148fa13aa00" class="" dir="auto">Silahkan pasang Toolbar pada <code>SecondActivity</code>, <code>ThirdActivity</code>, <code>FourthActivity</code> beserta tombol back-nya. Jika sudah ada tombol back pada latihan sebelumnya, silahkan di hapus</p></div></aside><p id="b7a54857-ba46-8257-8575-016a5546fa6b" class="" dir="auto">
+</p><hr id="8d154857-ba46-8277-ab9b-8196fc33888f" dir="auto"/><p id="b7654857-ba46-8275-8be6-01218e00279c" class="" dir="auto">
+</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="c3654857-ba46-8202-aab8-01999c22a3cd" style="display:inline-block">📂 Option Menu</h1></summary><div class="indented"><p id="68854857-ba46-835d-ace0-81783c6a7575" class="" dir="auto">Selanjutnya, kita akan menambahkan Option Menu pada toolbar <code>ActivityFitfth</code></p><ol type="1" id="11454857-ba46-83fb-a16a-81260cb56b52" class="numbered-list" start="1" dir="auto"><li>Silahkan buat Android Resourcse Directory di folder <code>/res</code> dan pilih type <code>menu</code> lalu buat file baru dengan nama <code>main_menu.xml</code><div id="df354857-ba46-835c-9684-81daf4aea424" class="column-list" data-notion-column-list="" dir="auto"><div id="56b54857-ba46-828f-bdaf-81bdda6b2dda" style="width:62.5%" class="column" data-notion-column-ratio="0.625" dir="auto"><figure id="65c54857-ba46-8213-9ba9-81451fb35f5d" class="image" data-notion-image="image%202.png" dir="ltr"><a href="image%202.png"><img style="width:384px" src="image%202.png"/></a></figure></div><div id="45154857-ba46-83d0-a791-01eaec63fbc1" style="width:37.5%" class="column" data-notion-column-ratio="0.375" dir="auto"><figure id="f5f54857-ba46-82f6-a3fb-01699958114e" class="image" data-notion-image="image%203.png" dir="ltr"><a href="image%203.png"><img style="width:192px" src="image%203.png"/></a></figure></div></div></li></ol><p id="13354857-ba46-82ba-801c-015ec4c3778f" class="" dir="auto">2.  Silahkan salin kode berikut ke <code>main_menu.xml</code> sebelum tag <code>&lt;/menu&gt;</code> <div class="indented"><div id="40d54857-ba46-8265-8ef5-01b44991521f" class="column-list" data-notion-column-list="" dir="auto"><div id="c5a54857-ba46-834e-a539-01b839bb3a56" style="width:56.25%" class="column" data-notion-column-ratio="0.5625" dir="auto"><pre id="32054857-ba46-821d-aa85-011ba605d5d6" class="code code-wrap" data-notion-code-syntax="xml"><code class="language-xml" style="white-space:pre-wrap;word-break:break-all">&lt;item
+    android:id=&quot;@+id/action_search&quot;
+    android:title=&quot;Search&quot;
+    android:icon=&quot;@android:drawable/ic_menu_search&quot;
+    app:showAsAction=&quot;ifRoom&quot; /&gt;
+
+&lt;item
+    android:id=&quot;@+id/action_settings&quot;
+    android:title=&quot;Settings&quot;
+    android:icon=&quot;@android:drawable/ic_menu_preferences&quot;
+    app:showAsAction=&quot;never&quot; /&gt;</code></pre></div><div id="61a54857-ba46-836d-bc38-81054de0cdf6" style="width:43.75000000000001%" class="column" data-notion-column-ratio="0.43750000000000006" dir="auto"><ul id="ee054857-ba46-83b6-9ecb-813ec91a8263" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code><strong>ifRoom</strong></code> → Menampilkan ikon jika ada ruang kosong di toolbar. </li></ul><ul id="5e454857-ba46-83c6-bf64-816f0d6cf7f2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code><strong>never</strong></code> → Menampilkan item hanya di overflow menu atau saat icon 3 dot di klik.</li></ul></div></div></div></p><ol type="1" id="70854857-ba46-82cd-8d01-8109bf664153" class="numbered-list" start="3" dir="auto"><li>Agar Option Menu tampil dan berfungsi, kita perlu menambahkan <code>onCreateOptionsMenu()</code> dan melakukan modifikasi pada bagian <code>onOptionsItemSelected()</code> dengan menambahkan <code>action_search</code> dan <code>action_settings</code> :<pre id="69954857-ba46-8377-85e0-81bad447ac32" class="code code-wrap" data-notion-code-syntax="kotlin"><code class="language-kotlin" style="white-space:pre-wrap;word-break:break-all">		override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+        
+            ... 
+            
+            R.id.action_search -&gt; {
+                Toast.makeText(this, &quot;Search Clicked&quot;, Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.action_settings -&gt; {
+                Toast.makeText(this, &quot;Settings Clicked&quot;, Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -&gt; super.onOptionsItemSelected(item)
+        }
+    }</code></pre><p id="6b854857-ba46-828c-8d89-01b0843b1731" class="" dir="auto">
+</p></li></ol><ol type="1" id="6a454857-ba46-82f4-9129-815d17a6398e" class="numbered-list" start="4" dir="auto"><li>Silahkan coba di run, maka Option Menu akan tampil di bagian kanan toolbar<div id="f4a54857-ba46-823d-94fa-8144f2710331" class="column-list" data-notion-column-list="" dir="auto"><div id="fa054857-ba46-820f-8ef9-010b4b645198" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="e7e54857-ba46-82f9-87fa-01bb8c8604e8" class="image" data-notion-image="image%204.png" dir="ltr"><a href="image%204.png"><img style="width:303.984375px" src="image%204.png"/></a></figure></div><div id="61154857-ba46-82d5-9d4e-81e98ea677e8" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="a7e54857-ba46-83f2-a27b-01424be1e898" class="image" data-notion-image="image%205.png" dir="ltr"><a href="image%205.png"><img style="width:303.9620666503906px" src="image%205.png"/></a></figure></div></div><p id="1df54857-ba46-8377-9a15-01406148f852" class="" dir="auto">
+</p><p id="50054857-ba46-83ab-be99-81db6dfe21ef" class="" dir="auto">Jika kita mengubah atribut <code>showAsAction</code> milik <code>action_search</code> menjadi <code>never</code>, maka tombol search akan ditampilkan dalam dropdown</p><div id="69754857-ba46-83a0-a3c7-01e946abf301" class="column-list" data-notion-column-list="" dir="auto"><div id="82a54857-ba46-821f-9bdb-01db81e6a043" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="c0154857-ba46-828d-9135-0129fc3209cd" class="image" data-notion-image="image%206.png" dir="ltr"><a href="image%206.png"><img style="width:303.9508972167969px" src="image%206.png"/></a></figure><p id="5ba54857-ba46-836b-98d5-81df5ebe65f0" class="" dir="auto">
+</p></div><div id="a5354857-ba46-838b-95c1-0146e0ea3c25" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="56154857-ba46-83d8-84bf-819b76c343b8" class="image" data-notion-image="image%207.png" dir="ltr"><a href="image%207.png"><img style="width:303.9732360839844px" src="image%207.png"/></a></figure></div></div></li></ol><hr id="fd654857-ba46-833b-b37b-81b92d7039d9" dir="auto"/><p id="f7254857-ba46-826a-b6dc-813056e591eb" class="" dir="auto">
+</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="b6454857-ba46-8217-a62b-81e7c845b9f9" style="display:inline-block">📂 Scrollable Content </h1></summary><div class="indented"><p id="a9b54857-ba46-827f-a18d-818e71d5bd27" class="" dir="auto">Android menyediakan dua komponen penting untuk mengatur interaksi antara Toolbar dan konten yang bisa di-scroll, yaitu <code><strong>CoordinatorLayout</strong></code> dan <code><strong>AppBarLayout</strong></code>.</p><p id="a8654857-ba46-82ac-9686-81f2f9f4f073" class="" dir="auto">Keduanya berfungsi sebagai “wadah” yang dapat memahami gerakan scroll dari komponen seperti <code><strong>NestedScrollView</strong></code> atau <code><strong>RecyclerView</strong></code>.</p><p id="afa54857-ba46-825d-857c-81746dcc58ae" class="" dir="auto">Dengan menggabungkan komponen-komponen ini, kita bisa mengatur bagaimana Toolbar bereaksi saat user melakukan scroll halaman — misalnya:</p><ul id="05e54857-ba46-8302-b605-0189c365ff90" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Toolbar ikut tersembunyi saat scroll ke bawah,</li></ul><ul id="09354857-ba46-828a-939a-015c88008038" class="bulleted-list" dir="auto"><li style="list-style-type:disc">muncul kembali saat scroll ke atas, atau</li></ul><ul id="f2c54857-ba46-82be-9dc0-01e8e5d294d1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">menampilkan efek collapsing toolbar yang terlihat lebih interaktif dan modern.</li></ul><hr id="b2654857-ba46-82e3-a924-01cf715bc6db" dir="auto"/><p id="f8054857-ba46-8265-b254-01ba01dd432a" class="" dir="auto">
+</p><p id="6c354857-ba46-827a-822e-01dd599fadbf" class="" dir="auto">Sekarang kita akan mencoba menerapkan <code><strong>NestedScrollView</strong></code> untuk menyiapkan konten yang panjang dan bisa di-scroll (<em>scrollable content</em>).</p><details id="87b54857-ba46-82e1-97ec-81cbfeb4b91c" open="" class="toggle" dir="auto"><summary>1️⃣ Siapkan konten scrollable menggunakan <code>NestedScrollView</code></summary><div class="indented"><p id="06154857-ba46-829d-ad9e-813191afb3cf" class="" dir="auto">Silahkan copy paste kode berikut pada <code>activity_fifth.xml</code> tepat dibawah <code>Toolbar</code></p><details id="11f54857-ba46-830a-832f-0184723170e1" open="" class="toggle" dir="auto"><summary><mark class="highlight-orange" data-notion-highlight="orange"><strong>Lihat Kode</strong></mark></summary><div class="indented"><pre id="43454857-ba46-83dc-be0d-01d1aaa9e333" class="code code-wrap" data-notion-code-syntax="xml"><code class="language-xml" style="white-space:pre-wrap;word-break:break-all">    &lt;androidx.appcompat.widget.Toolbar
+        ... /&gt;
+
+		&lt;!-- Konten scrollable --&gt;
+    &lt;androidx.core.widget.NestedScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;
+        app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot;
+        android:padding=&quot;24dp&quot;
+        android:clipToPadding=&quot;false&quot;&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:orientation=&quot;vertical&quot;
+            android:gravity=&quot;center_horizontal&quot;&gt;
+
+  
+
+            &lt;!-- Tambahkan konten panjang supaya bisa di-scroll --&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+            android:textSize=&quot;16sp&quot;
+            android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;
+                android:textSize=&quot;16sp&quot;
+                android:layout_marginTop=&quot;24dp&quot; /&gt;
+        &lt;/LinearLayout&gt;
+    &lt;/androidx.core.widget.NestedScrollView&gt;
+</code></pre></div></details><div id="a7254857-ba46-824e-b1d2-01c57edd62f1" class="column-list" data-notion-column-list="" dir="auto"><div id="8fb54857-ba46-83a6-87b8-81bd28403b86" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><p id="68154857-ba46-83a6-aa05-815099f2829e" class="" dir="auto">Setelah diterapkan, maka akan terlihat jika konten scroll melebih toolbar dan sangat tidak cantik</p><p id="23654857-ba46-83ba-acbe-816e729ec54b" class="" dir="auto">
+</p></div><div id="34a54857-ba46-8221-9fbd-01ec597c3fc4" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="23554857-ba46-83aa-b93e-01e934665920" class="image" data-notion-image="image%208.png" dir="ltr"><a href="image%208.png"><img style="width:240px" src="image%208.png"/></a></figure></div></div><p id="78c54857-ba46-82ec-bf8d-01c66d4200a3" class="" dir="auto">Hal ini dikarenakan <code>ConstraintLayout</code> hanya menampatkan komponen secara statis tanpa bisa mengetahui batas atas dan batas bawah komponen, dalam hal ini seharusnya <code>NestedScrollView</code> berada dibawah <code>Toolbar</code> </p><p id="b0254857-ba46-8239-9ab7-010515dbed29" class="" dir="auto">
+</p></div></details><details id="16054857-ba46-825f-9872-81241b391d54" open="" class="toggle" dir="auto"><summary>2️⃣ Terapkan <code>CoordinatorLayout</code> dan <code>AppBarLayout</code></summary><div class="indented"><p id="7d354857-ba46-82fe-9040-81bd73a17b23" class="" dir="auto">
+</p><p id="6af54857-ba46-82f6-a3ac-0109bb37e9ab" class="" dir="auto">Jika sebelumnya <code>ConstraintLayout</code> memiliki pola berikut<div class="indented"><ul id="0cc54857-ba46-8232-b733-01836c624be0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Root: <code>ConstraintLayout</code></li></ul><ul id="9b054857-ba46-8367-b7aa-81e7366667be" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Toolbar</code></li></ul><ul id="2d654857-ba46-838b-8122-01f69893f539" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>NestedScrollView</code> </li></ul><ul id="b7854857-ba46-820d-b97f-81c07ff7dacb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Scroll → konten akan melebihi Toolbar</li></ul></div></p><p id="0a754857-ba46-839c-b648-0154866356ec" class="" dir="auto">Maka kita akan terapkan CoordinatorLayout<div class="indented"><ul id="d6a54857-ba46-83d6-b66a-01bf7c5bee7e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Root: <code>CoordinatorLayout</code></li></ul><ul id="4cf54857-ba46-83ec-8002-010c4bf8fbd7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Toolbar</code> di dalam <code>AppBarLayout</code></li></ul><ul id="c4154857-ba46-83e5-be80-013190719795" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Scroll → Toolbar akan tetap diatas dan bisa di sesuaikan untuk show/hide saat scroll</li></ul></div></p><p id="53a54857-ba46-82f6-b5bc-01b9d74d6030" class="" dir="auto">
+</p><div id="12254857-ba46-829b-8391-81a8c5e5b81d" class="column-list" data-notion-column-list="" dir="auto"><div id="49054857-ba46-8237-ac84-81ba71e0a2a6" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><p id="35c54857-ba46-8233-a064-8149276e4859" class="block-color-brown_background" data-notion-highlight="brown_background" dir="auto"><em>Before</em></p><figure id="e2e54857-ba46-827d-a328-8135b0125443" class="image" data-notion-image="image%209.png" dir="ltr"><a href="image%209.png"><img style="width:304.0104064941406px" src="image%209.png"/></a></figure><p id="f5454857-ba46-827f-9651-810d99a5d5ed" class="" dir="auto">
+</p></div><div id="b3754857-ba46-8205-955f-017b32dfe5c4" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><p id="2a154857-ba46-822f-b8cd-01bbbde69218" class="block-color-teal_background" data-notion-highlight="teal_background" dir="auto"><em>After</em></p><figure id="62554857-ba46-827d-80d5-81247216b30d" class="image" data-notion-image="image%2010.png" dir="ltr"><a href="image%2010.png"><img style="width:303.99737548828125px" src="image%2010.png"/></a></figure></div></div><table id="3ef54857-ba46-82f7-9936-016b2b8969ca" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="39754857-ba46-8317-9dc4-01d804d14ee5" dir="ltr"><th id="Ew&gt;}" class="simple-table-header-color simple-table-header" style="width:230.2005157470703px">Komponen</th><th id="b::C" class="simple-table-header-color simple-table-header" style="width:392px">Fungsi</th></tr></thead><tbody><tr id="84a54857-ba46-8228-822a-81872611eb6a" dir="ltr"><td id="Ew&gt;}" class="" style="width:230.2005157470703px"><strong>CoordinatorLayout</strong></td><td id="b::C" class="" style="width:392px">Layout utama yang mengatur interaksi antar komponen (misal toolbar &amp; scroll view).</td></tr><tr id="59c54857-ba46-83e7-b691-81a8f4a41d16" dir="ltr"><td id="Ew&gt;}" class="" style="width:230.2005157470703px"><strong>AppBarLayout</strong></td><td id="b::C" class="" style="width:392px">Wadah untuk elemen di atas layar (Toolbar, TabLayout, CollapsingToolbarLayout, dll.).</td></tr><tr id="f4754857-ba46-82c2-ba47-81bb7aca5fbb" dir="ltr"><td id="Ew&gt;}" class="" style="width:230.2005157470703px"><strong>NestedScrollView</strong></td><td id="b::C" class="" style="width:392px">Konten yang bisa discroll dan “berkoordinasi” dengan AppBarLayout agar efek scroll bekerja.</td></tr><tr id="7b054857-ba46-8312-a82d-8195bcdbd800" dir="ltr"><td id="Ew&gt;}" class="" style="width:230.2005157470703px"><code>app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot;</code></td><td id="b::C" class="" style="width:392px">Memberitahu sistem bahwa bagian bawah ini mengikuti aturan scroll dari AppBarLayout.</td></tr></tbody></table><p id="88e54857-ba46-82be-9b44-01327e9646f1" class="" dir="auto">
+</p></div></details><details id="8df54857-ba46-8302-9463-816757aa0e71" open="" class="toggle" dir="auto"><summary>3️⃣ Test scroll dan test behavior lainnya</summary><div class="indented"><div id="86754857-ba46-83b2-b717-8152be59aa3a" class="column-list" data-notion-column-list="" dir="auto"><div id="b3054857-ba46-8228-84fa-010dcd27d07c" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><p id="fda54857-ba46-8274-9718-0109aba32c17" class="" dir="auto">Saat ini, jika sudah menerapkan <code>CoordinatorLayout</code> dan <code>AppBarLayout</code> maka tampilan scroll sudah sesuai dengan yang diharapkan</p></div><div id="cd554857-ba46-8281-9c2c-0112691290dd" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="c9054857-ba46-823b-9477-0144041543d3" class="image" data-notion-image="image%2011.png" dir="ltr"><a href="image%2011.png"><img style="width:288px" src="image%2011.png"/></a></figure></div></div><p id="de154857-ba46-821d-8b6d-0171b40fccdd" class="" dir="auto">Coba tambahkan kode berikut pada <code>Toolbar</code> </p><div id="79554857-ba46-8304-9574-01a13d092d48" class="column-list" data-notion-column-list="" dir="auto"><div id="2ae54857-ba46-8360-a38e-81453aa7c70a" style="width:68.75%" class="column" data-notion-column-ratio="0.6875" dir="auto"><pre id="ac954857-ba46-829c-a528-010d3a3e276a" class="code code-wrap" data-notion-code-syntax="xml"><code class="language-xml" style="white-space:pre-wrap;word-break:break-all">&lt;androidx.appcompat.widget.Toolbar
+    ...
+    app:layout_scrollFlags=&quot;scroll|enterAlways&quot;
+/&gt;</code></pre></div><div id="ea154857-ba46-8222-8264-01991d6251a1" style="width:31.250000000000007%" class="column" data-notion-column-ratio="0.31250000000000006" dir="auto"><ul id="4e054857-ba46-8392-aa9b-01026a242c1b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Scroll ke bawah → Toolbar ikut keatas dan hilang</li></ul><ul id="20954857-ba46-8303-a8a8-01b402c6bd43" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Scroll ke atas → Toolbar akan tampil kembali</li></ul></div></div><p id="87054857-ba46-82ac-bd28-815d75ae56db" class="" dir="auto">Silahkan eksplor lebih jauh untuk jenis-jenis dari <code>layout_scrollFlags</code></p><p id="dd354857-ba46-83d1-9e40-0156c27a7867" class="" dir="auto">
+</p></div></details><p id="8f254857-ba46-8321-9b97-01dcd63e7239" class="" dir="auto">
+</p><blockquote id="c3454857-ba46-8250-ad98-01bddabc1881" class="" dir="auto"><em>Pada scrollable content, pastikan root nya menggunakan </em><em><code>CoordinatorLayout</code></em><em>, lalu pada komponen dalamnya baru kita terapkan </em><em><code>LinearLayout</code></em><em> atau </em><em><code>ConstrainLayout</code></em></blockquote><hr id="bef54857-ba46-827d-9fcb-01af079f12ee" dir="auto"/><p id="d9754857-ba46-83de-bcfb-014b5165a1d4" class="" dir="auto">
+</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="41e54857-ba46-827c-aef4-81c56e2f2abf" style="display:inline-block">📂 WebView </h1></summary><div class="indented"><p id="34754857-ba46-822e-ba55-8170a28ba9f2" class="" dir="auto"><code><strong>WebView</strong></code> adalah komponen Android yang memungkinkan aplikasi menampilkan konten web seperti <strong>HTML</strong>, <strong>CSS</strong>, dan <strong>JavaScript</strong> langsung di dalam aplikasi — tanpa perlu membuka browser eksternal.</p><p id="db354857-ba46-8344-a350-819c05af4ceb" class="" dir="auto">Dengan <code>WebView</code>, kita bisa membuat halaman web tampil seperti bagian dari aplikasi.</p><hr id="da954857-ba46-8209-aea8-01462796a86f" dir="auto"/><p id="c3d54857-ba46-8213-8b89-8116d5322db6" class="" dir="auto">
+</p><aside class="block-color-brown_background callout" data-notion-callout="" data-notion-callout-icon="📌" data-notion-callout-background="brown_background" style="white-space:pre-wrap;display:flex" id="71154857-ba46-82b9-9e12-816cfaa66b1a" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="📌"></span></div><div style="width:100%"><p id="d3e54857-ba46-834a-8dad-0108da923b15" class="" dir="auto">Persiapan awal sebelum menerapkan <code>WebView</code> :</p><ul id="9f954857-ba46-82c5-9c67-01d27eade8bc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Buatlah sebuah <code>Button</code> dengan id <code>btnWebView</code> di dalam <code>LinearLayout</code> pada <code>activity_fifth.xml</code> <p id="96154857-ba46-823b-9998-01c6693dbd51" class="" dir="auto">(Perhatikan nested layout-nya)</p></li></ul><ul id="c3b54857-ba46-8344-b997-811be6308172" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Buatlah Activity baru dengan nama <code>WebViewActivity</code> di <code>pertemuan_5</code></li></ul><ul id="ae154857-ba46-83a2-935c-015d34eb829c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Terapkan <code>onClickListener</code> pada <code>btnWebView</code> untuk berpindah ke <code>WebViewActivity</code></li></ul></div></aside><p id="76654857-ba46-83c6-ab25-0198909303df" class="" dir="auto">
+</p><p id="80754857-ba46-835e-8416-018a8cc510f6" class="" dir="auto">Jika langkah diatas sudah berhasil, ikut step berikut:</p><details id="2e054857-ba46-836e-9977-0162e9e5b3ae" open="" class="toggle" dir="auto"><summary>1️⃣ Tambahkan komponen <code>WebView</code> ke <code>activity_web_view.xml</code> </summary><div class="indented"><div id="2f554857-ba46-82bf-a189-017a245713c0" class="column-list" data-notion-column-list="" dir="auto"><div id="ec154857-ba46-82fa-9982-0121fd38190d" style="width:56.25%" class="column" data-notion-column-ratio="0.5625" dir="auto"><figure id="50654857-ba46-821d-8558-81270118f8ce" class="image" data-notion-image="image%2012.png" dir="ltr"><a href="image%2012.png"><img style="width:341.9866027832031px" src="image%2012.png"/></a></figure><ul id="4ce54857-ba46-8305-8c96-81e92e4143c2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Komponen <code>WebView</code> ada di Widgets→WebView</li></ul><ul id="42554857-ba46-835d-9878-0135fedb4b34" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Karena hanya akan ada komponen ini, maka constraint bisa di pasang di ke empat sisinya</li></ul><ul id="0f754857-ba46-8253-b7a0-81faf8202c32" class="bulleted-list" dir="auto"><li style="list-style-type:disc">id = <code>webView</code> </li></ul><ul id="69454857-ba46-8353-b65b-81cd54a6fce5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"> <code>width</code> <code>height</code> = <code>match_parent</code></li></ul><p id="ccd54857-ba46-82e2-b25b-01ddb03b74ff" class="" dir="auto">
+</p></div><div id="5b354857-ba46-83d0-b987-01235fd34abe" style="width:43.75000000000001%" class="column" data-notion-column-ratio="0.43750000000000006" dir="auto"><figure id="d1a54857-ba46-833a-b7fa-01ce098fd9aa" class="image" data-notion-image="image%2013.png" dir="ltr"><a href="image%2013.png"><img style="width:192px" src="image%2013.png"/></a></figure><p id="12454857-ba46-8391-b0cf-0163420e5845" class="" dir="auto">
+</p></div></div></div></details><details id="1dc54857-ba46-836a-b0a0-81ae9ea56594" open="" class="toggle" dir="auto"><summary>2️⃣ Konfigurasi <code>WebViewActivity</code> dengan menerapkan kode berikut </summary><div class="indented"><pre id="1ae54857-ba46-83ef-b392-01ea336cf6de" class="code code-wrap" data-notion-code-syntax="kotlin"><code class="language-kotlin" style="white-space:pre-wrap;word-break:break-all">    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+
+        binding.webView.webViewClient = WebViewClient()
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.loadUrl(&quot;https://merdeka.com&quot;)
+    }</code></pre><p id="17354857-ba46-822b-9e03-01ef416c89e7" class="" dir="auto">
+</p></div></details><details id="4e054857-ba46-82f9-93cb-01a1a7da5cd9" open="" class="toggle" dir="auto"><summary>3️⃣ Tambahkan permission di <code>AndroidManifest.xml</code> untuk mendapat izin akses internet</summary><div class="indented"><pre id="aa954857-ba46-82d6-a31a-017e160812c5" class="code code-wrap" data-notion-code-syntax="xml"><code class="language-xml" style="white-space:pre-wrap;word-break:break-all">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</code></pre><figure id="65f54857-ba46-8389-a07c-0132a91fb5be" class="image" data-notion-image="image%2014.png" dir="ltr"><a href="image%2014.png"><img style="width:303.9732360839844px" src="image%2014.png"/></a></figure><p id="9b454857-ba46-833e-ab9e-015c37b0c35f" class="" dir="auto">
+</p></div></details><details id="e2254857-ba46-82d8-b86a-0194b9108860" open="" class="toggle" dir="auto"><summary>4️⃣ Navigasi ke halaman web sebelumnya</summary><div class="indented"><p id="2dd54857-ba46-83dc-a484-81ada2c72d1e" class="" dir="auto">Saat ini, web sudah dapat terbuka di aplikasi. Namun, ketika ingin melakukan navigasi kembali ke halaman web sebelumnya,  aplikasi justru menutup <code>WebActivity</code>.</p><p id="2dd54857-ba46-83e7-a7a5-0113dd2766ef" class="" dir="auto">Untuk mengatasi masalah tersebut, kita perlu ambil alih fungsi tombol kembali dengan menerapkan kode berikut di bawah <code>onCreate</code> :</p><pre id="01d54857-ba46-83f4-a514-8123a9408666" class="code code-wrap" data-notion-code-syntax="kotlin"><code class="language-kotlin" style="white-space:pre-wrap;word-break:break-all">override fun onCreate(savedInstanceState: Bundle?) {
+	...
+	...
+	...
+}
+
+override fun onBackPressed() {
+    if (binding.webView.canGoBack()) {
+        binding.webView.goBack() // Kembali ke halaman web sebelumnya
+    } else {
+        super.onBackPressed() // Keluar activity sebelumnya
+    }
+}</code></pre><p id="63554857-ba46-82c3-9aa8-01a4fc6d87b1" class="" dir="auto">Setelah dijalankan, tombol kembali akan mengarahkan kita ke halaman sebelum nya</p><p id="48154857-ba46-8397-a789-01eb3b9f49ab" class="" dir="auto">
+</p></div></details><details id="a9154857-ba46-8396-9fa1-81a0d1e70677" open="" class="toggle" dir="auto"><summary>5️⃣ Menutup WebView dan kembali ke Acivity sebelumnya</summary><div class="indented"><p id="dd754857-ba46-8241-8e7f-019f550793fa" class="" dir="auto">Jika kita sudah mengambil alih fungsi tombol kembali, maka kita perlu memasang <code>Toolbar</code> dengan tombol <em>back </em>agar bisa menutup <code>WebActivity</code>. </p><p id="ccd54857-ba46-824d-81fd-0113b5e512dd" class="" dir="auto">Sesuaikan <code>activity_webview.xml</code> dengan menerapkan <code>CoordinatorLayout </code>dan Toolbar pada <code>AppBarLayout</code>:</p><pre id="5e454857-ba46-832a-bb17-815d257a3238" class="code code-wrap" data-notion-code-syntax="xml"><code class="language-xml" style="white-space:pre-wrap;word-break:break-all">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    ....&gt;
+
+    &lt;com.google.android.material.appbar.AppBarLayout
+        android:id=&quot;@+id/appBar&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:theme=&quot;@style/ThemeOverlay.MaterialComponents.Dark.ActionBar&quot;&gt;
+
+        &lt;androidx.appcompat.widget.Toolbar
+            android:id=&quot;@+id/toolbar&quot;
+            android:background=&quot;?attr/colorPrimary&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;?attr/actionBarSize&quot;
+            app:titleTextColor=&quot;@android:color/white&quot;
+            app:layout_scrollFlags=&quot;scroll|enterAlways&quot;/&gt;
+            
+    &lt;/com.google.android.material.appbar.AppBarLayout&gt;
+
+    &lt;WebView
+        ...
+        app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot; /&gt;
+
+&lt;/androidx.coordinatorlayout.widget.CoordinatorLayout&gt;</code></pre><p id="69154857-ba46-82c3-a8d1-01972a818f03" class="" dir="auto">Jangan lupa set <code>layout_behavior</code> pada <code>WebView</code></p><p id="2a354857-ba46-83dc-af9f-81808bd3eb30" class="" dir="auto">
+</p><p id="28254857-ba46-82a4-83bf-01e259e354cc" class="" dir="auto">Pada <code>WebViewActivity</code>,  terapkan :</p><ul id="65f54857-ba46-8231-86d4-01d0a0edb160" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>setSupportActionBar()</code> </li></ul><ul id="39a54857-ba46-82eb-88fa-81a73977d78c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>onBackPressed()</code> </li></ul><ul id="5fe54857-ba46-83be-87d7-0188bf15bb9e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>setOnScrollChangeListener()</code> </li></ul><pre id="89d54857-ba46-83b0-af79-0143a537999d" class="code code-wrap" data-notion-code-syntax="kotlin"><code class="language-kotlin" style="white-space:pre-wrap;word-break:break-all">    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+	       
+	      // Mengaktifkan toolbar
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = &quot;Web Merdeka&quot;
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+
+        binding.webView.webViewClient = WebViewClient()
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.loadUrl(&quot;https://merdeka.com&quot;)
+        
+        // Agar Toolbar hide/show saat scroll web
+	      binding.webView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY -&gt;
+            if (scrollY &gt; oldScrollY) {
+                binding.appBar.setExpanded(false, true) // sembunyikan
+            } else if (scrollY &lt; oldScrollY) {
+                binding.appBar.setExpanded(true, true) // tampilkan
+            }
+        }
+    }
+    
+    //Mengaktifkan tombol back pada toolbar
+    override fun onBackPressed() {
+        if (binding.webView.canGoBack()) {
+            binding.webView.goBack() // Kembali ke halaman sebelumnya
+        } else {
+            super.onBackPressed() // Keluar dari aplikasi
+        }
+    }</code></pre><p id="88654857-ba46-8234-bb7a-01fae89504e2" class="" dir="auto">
+</p><div id="76f54857-ba46-8252-84dd-812e4f437ec7" class="column-list" data-notion-column-list="" dir="auto"><div id="75954857-ba46-838d-97d3-010483594e89" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="55354857-ba46-829c-90c2-8101fa2aafbd" class="image" data-notion-image="image%2015.png" dir="ltr"><a href="image%2015.png"><img style="width:430.9765625px" src="image%2015.png"/></a><figcaption>Toolbar dan tombol sudah tampil</figcaption></figure><p id="aa554857-ba46-8342-966f-81bace767aac" class="" dir="auto">
+</p></div><div id="80954857-ba46-8392-a6ee-01f0661b2318" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="fd854857-ba46-8235-b1c5-016f7cb6381b" class="image" data-notion-image="image%2016.png" dir="ltr"><a href="image%2016.png"><img style="width:303.984375px" src="image%2016.png"/></a><figcaption>Saat di scroll, toolbar akan menyesuaikan karena adanya CoordinatorLayout</figcaption></figure></div></div></div></details><p id="cf354857-ba46-8355-9ad7-014329c66a61" class="" dir="auto">
+</p><hr id="e8054857-ba46-82d5-9934-010d4d2d4e3b" dir="auto"/></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="e9754857-ba46-8309-9961-01b83a6491b8" style="display:inline-block">📂 Vector Asset</h1></summary><div class="indented"><p id="04454857-ba46-8328-8f61-8100c572d62b" class="" dir="auto">Vector Asset merupakan gambar berbasis <strong>vektor</strong> yang digunakan dalam aplikasi android seperti tombol, logo, dan elemen UI lainnya. Berbeda dengan gambar PNG atau JPG gambar vektor akan tetap tajam di semua ukuran layar.</p><hr id="ec154857-ba46-83c2-b1a5-013e4764af32" dir="auto"/><p id="ff054857-ba46-83f0-9e29-812229b86143" class="" dir="auto">Kita akan coba menambahkan icon untuk tombol kembali di toolbar dengan warna putih. Silahkan ikuti langkah berikut:</p><ol type="1" id="a6154857-ba46-82a3-b5c5-017f8d9f5464" class="numbered-list" start="1" dir="auto"><li>Pada folder drawable, klik New → pilih Vector Asset<figure id="37454857-ba46-82f9-841f-816d3bd63c7a" class="image" style="text-align:center" data-notion-image="image%2017.png" dir="ltr"><a href="image%2017.png"><img style="width:528px" src="image%2017.png"/></a></figure></li></ol><ol type="1" id="b1754857-ba46-836a-8684-016bca5de573" class="numbered-list" start="2" dir="auto"><li>Akan muncul modal untuk melakukan kostumisasi terhadap asset yang akan ditambahkan. Klik pada icon “Clip Art”<figure id="bd254857-ba46-83fb-bb77-015ab5d90da6" class="image" style="text-align:center" data-notion-image="image%2018.png" dir="ltr"><a href="image%2018.png"><img style="width:528px" src="image%2018.png"/></a></figure></li></ol><ol type="1" id="2d454857-ba46-8251-9bd9-81d4fce9e0ce" class="numbered-list" start="3" dir="auto"><li>Akan tampil modal untuk mencari icon, silahkan ketik misal “add”, pilih icon-nya lalu klik OK<figure id="1ad54857-ba46-8263-83ce-817eb0d7e0fe" class="image" style="text-align:center" data-notion-image="image%2019.png" dir="ltr"><a href="image%2019.png"><img style="width:528px" src="image%2019.png"/></a></figure></li></ol><ol type="1" id="4b654857-ba46-83d2-bbea-01b6243e1dbd" class="numbered-list" start="4" dir="auto"><li>Silahkan atur warna menjadi putih dan rename nama icon menjadi <code>ic_arrow_back</code> lalu klik Next → Finish.<p id="b0e54857-ba46-8277-856e-01c71f2ef751" class="" dir="auto">Format penulisan: <code>ic_xxx</code> /<code>ic_add</code> /<code>ic_phone</code> /<code>ic_home</code> /<code>ic_dashboard</code></p><figure id="73654857-ba46-8277-9021-0142ad5f24c5" class="image" style="text-align:center" data-notion-image="image%2020.png" dir="ltr"><a href="image%2020.png"><img style="width:528px" src="image%2020.png"/></a></figure><p id="f1354857-ba46-8351-afc6-01782b9421ec" class="" dir="auto">
+</p></li></ol><hr id="89054857-ba46-8387-b1a4-8175c3d45d41" dir="auto"/><p id="ed754857-ba46-8389-8b0f-816b163d3e8a" class="" dir="auto">Kita coba terapkan untuk mengganti icon dari tombol di <code>Toolbar</code>. </p><p id="b8f54857-ba46-833a-b238-8191c614be9f" class="" dir="auto">Tambahkan kode berikut pada <code>supportActionBar()</code> di <code>FifthActivity</code> </p><div id="b5654857-ba46-82c0-874d-81c9ec2a35f8" class="column-list" data-notion-column-list="" dir="auto"><div id="93d54857-ba46-83bd-9d18-811c82f49e66" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><pre id="a1354857-ba46-8278-a6ba-81c6acdd0840" class="code code-wrap" data-notion-code-syntax="kotlin"><code class="language-kotlin" style="white-space:pre-wrap;word-break:break-all">supportActionBar?.apply {
+    ...
+    
+    setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+}</code></pre></div><div id="2bc54857-ba46-82b9-a74e-81dfa8f388fa" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="46154857-ba46-8255-bf24-011668e89010" class="image" data-notion-image="image%2021.png" dir="ltr"><a href="image%2021.png"><img style="width:317.9352722167969px" src="image%2021.png"/></a></figure><p id="0c954857-ba46-82d6-bbf0-0108bdecadb0" class="" dir="auto">
+</p></div></div><hr id="31854857-ba46-8376-9042-81935db32f8b" dir="auto"/><p id="07354857-ba46-8301-b0fd-019a44d7a203" class="" dir="auto">Kita coba terapkan pada  tombol Web View yang telah kita buat sebelumnya.</p><p id="63c54857-ba46-823e-be55-81930c07ae6b" class="" dir="auto">Silahkan tambah icon baru <em>(pada contoh ini menambahkan </em><em><code>ic_add</code></em><em> berupa icon tanda tambah) </em>lalu terapkan <code>app:icon</code> dan <code>app:iconGravity</code> :</p><div id="59954857-ba46-82d4-9dfc-81edaa8f8f14" class="column-list" data-notion-column-list="" dir="auto"><div id="10554857-ba46-83b4-ad36-01a065136f62" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><pre id="ed554857-ba46-8215-a320-016c8437a9f6" class="code code-wrap" data-notion-code-syntax="xml"><code class="language-xml" style="white-space:pre-wrap;word-break:break-all">&lt;Button
+  android:id=&quot;@+id/btnWebView&quot;
+  ...
+  app:icon=&quot;@drawable/ic_add&quot;
+  app:iconGravity=&quot;textStart&quot; /&gt;</code></pre></div><div id="ef054857-ba46-8264-922d-819d3a4b659c" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="df854857-ba46-82d9-85b4-01ddcbf99802" class="image" data-notion-image="image%2022.png" dir="ltr"><a href="image%2022.png"><img style="width:317.96875px" src="image%2022.png"/></a></figure><ul id="82f54857-ba46-8376-897a-81815774321b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Jika <code>app:iconGravity</code> menggunakan <code>textEnd</code> maka icon akan berpindah ke bagian kanan text</li></ul></div></div><p id="65554857-ba46-83db-869d-812cad6ea316" class="" dir="auto">
+</p><p id="83454857-ba46-820e-9c0a-81c57bcc409d" class="" dir="auto">
+</p></div></details><p id="43754857-ba46-825d-90e2-81213dfe83ae" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
