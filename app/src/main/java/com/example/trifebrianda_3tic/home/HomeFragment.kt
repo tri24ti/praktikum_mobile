@@ -14,6 +14,7 @@ import com.example.trifebrianda_3tic.R
 import com.example.trifebrianda_3tic.databinding.FragmentHomeBinding
 import com.example.trifebrianda_3tic.home.pertemuan_5.LimaActivity
 import com.example.trifebrianda_3tic.home.pertemuan_6.EnamActivity
+import com.example.trifebrianda_3tic.home.pertemuan_9.NinthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -47,6 +48,10 @@ class HomeFragment : Fragment() {
         }
         binding.btnToEnam.setOnClickListener {
             val Intent = Intent(requireContext(), EnamActivity::class.java)
+            startActivity(Intent)
+        }
+        binding.btnToNinth.setOnClickListener {
+            val Intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(Intent)
         }
         binding.btnLogout.setOnClickListener {
