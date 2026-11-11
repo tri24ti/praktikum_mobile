@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.trifebrianda_3tic.LoginActivity
 import com.example.trifebrianda_3tic.R
 import com.example.trifebrianda_3tic.databinding.FragmentHomeBinding
+import com.example.trifebrianda_3tic.home.pertemuan_11.EleventhActivity
 import com.example.trifebrianda_3tic.home.pertemuan_5.LimaActivity
 import com.example.trifebrianda_3tic.home.pertemuan_6.EnamActivity
 import com.example.trifebrianda_3tic.home.pertemuan_9.NinthActivity
@@ -52,6 +53,10 @@ class HomeFragment : Fragment() {
         }
         binding.btnToNinth.setOnClickListener {
             val Intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(Intent)
+        }
+        binding.btnToEleventh.setOnClickListener {
+            val Intent = Intent(requireContext(), EleventhActivity::class.java)
             startActivity(Intent)
         }
         binding.btnLogout.setOnClickListener {
